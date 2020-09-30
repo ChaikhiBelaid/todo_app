@@ -26,7 +26,8 @@ def update(request, pk):
             form.save()
             return redirect("/")
     context={
-        "form":form
+        "form":form,
+        "task":task
     }
     return render(request, "tasks/update.html", context)
 def delete(request,pk):

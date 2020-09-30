@@ -11,26 +11,25 @@
             padding-left: 20%;
             margin-top: 1px;
         }
+       
         .text-lg{
             font-size: 150px;
-        }
-        .small{
-            
         }
     </style>
     <h1 class="text-center text-lg"> Todo App </h1>
     <br>
-    <dv class="text-center">
+    <dv class="text-center ">
         <form method="POST" action="/">
             {% csrf_token %}
             <div class="form-group">
                 {{form.title}}
                 <button class="btn btn-info" type="submit" >submit</button>
             </div>
+        </form>
     </dv>
     
         
-    </form>
+    
     <br>
     {% for task in tasks %}
     <div class="center_div text-left">
@@ -41,6 +40,7 @@
                     <a class="btn btn-danger"href="{% url 'delete' task.id%}">delete</a>
                     <strike class="font-weight-bold text-capitalize">{{task}}</strike>
                     <span class="small text-info">{{task.created.day}}/{{task.created.month}}/{{task.created.year}}    {{task.created.hour}}:{{task.created.minute}}</span>
+                    
                 </li>
             {% else %}
                 <li class="list-group-item bg-warning">
@@ -48,6 +48,7 @@
                     <a class="btn btn-danger"href="{% url 'delete' task.id%}">delete</a>
                     <span class="font-weight-bold text-capitalize">{{task}}</span>
                     <span class="small text-info">{{task.created.day}}/{{task.created.month}}/{{task.created.year}}    {{task.created.hour}}:{{task.created.minute}}</span>
+                    
                 </li>
             {% endif %}
         </ul>

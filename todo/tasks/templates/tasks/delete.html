@@ -1,11 +1,49 @@
 {% extends "tasks/layout.html" %}
 {% block body %}
-    <p>Are you sure you want to delete "{{item}}"</p>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body{
+            background-color: yellow;
+        }
+        
+        .center_div {
+            
+            padding-right: 20%;
+            padding-left: 20%;
+            margin-top: 1px;
+        }
+        .text-lg{
+            font-size: 60px;
+
+        }
+        .button-white{
+            color:black;
+        }
+        .flex{
+           padding:10%;  
+        }
+        .b1{
+            float: left;
+            width: 150px;
+            font-size: 30px;
+        }
+        .b2{
+            float:right;
+            width: 150px;
+            font-size: 30px;
+            
+        }
+        
+    </style>
     
-    <a href="{% url 'index' %} ">cancel</a>
-    <form method="POST" action="">
-        {% csrf_token %}
-        <input type="submit" name="confirm">
-    </form>
+    <h1 class="text-lg text-center">Are you sure you want to delete <span class="small text-danger">"{{item}}"</span> ?</h1>
+    <div class="text-center flex">
+        <a class="btn btn-success button-white b1" href="{% url 'index' %}">cancel </a>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <button class="btn btn-danger b2" type="submit">confirm</button>
+        </form>
+    </div>
+    
     
 {% endblock %}
